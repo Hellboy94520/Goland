@@ -2,14 +2,16 @@ package main
 
 import (
 	"fmt"
-	// Requirement: 'go get rsc.io/quote' and generated go.sum file
-	"rsc.io/quote"
+	/* Import my local module locally instead of remote :
+	 * 'go mod edit -replace example.com/greetings=../greeting'
+	 * and sync it on hello folder :
+	 * 'go mod tidy'
+	 */
+	"example.com/greetings"
 )
 
 func main() {
-	fmt.Println("Quote package from module rsc.io:")
-	fmt.Println("- quote.Go()	  : " + quote.Go())
-	fmt.Println("- quote.Glass(): " + quote.Glass())
-	fmt.Println("- quote.Hello(): " + quote.Hello())
-	fmt.Println("- quote.Opt()  : " + quote.Opt())
+	// Get a greeting message and print it.
+	message := greetings.Hello("Gladys")
+	fmt.Println(message)
 }
