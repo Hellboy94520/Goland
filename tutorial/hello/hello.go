@@ -18,7 +18,7 @@ func main() {
 	log.SetFlags(0)
 
 	// Request a greetings msg with empty string, expected error
-	message, err := greetings.Hello("")
+	message, err := greetings.Hello("Gladys")
 	if err != nil {
 		// Fatal msg and leaving program
 		log.Fatal(err)
