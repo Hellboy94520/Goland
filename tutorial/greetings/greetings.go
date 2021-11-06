@@ -20,6 +20,24 @@ func Hello(name string) (string, error) {
 	return message, nil
 }
 
+func Hellos(names []string) (map[string]string, error) {
+	/* Initialize an empty map of string,string
+	 * For each names defined as input parameters calling Hello method
+	 * If an error is detected, returning error
+	 */
+	messages := make(map[string]string)
+
+	for _, name := range names {
+		message, err := Hello(name)
+		if err != nil {
+			return nil, err
+		}
+		messages[name] = message
+	}
+
+	return messages, nil
+}
+
 func init() {
 	/* I am do not understanding how that function is used:
 	 * - Try to comment it but nothing noticeable has been updated/changed
